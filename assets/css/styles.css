@@ -1,0 +1,87 @@
+*{
+    box-sizing:border-box;
+}
+
+html{
+    font-size:62.5%;
+    padding:0px;
+}
+body {
+    margin:0px;
+    padding:0px;
+    font-family: 'Open Sans';
+}
+ul,
+li {
+    margin:0px;
+    padding:0px;
+    list-style: none;
+}
+a,a:hover{
+    text-decoration: none;
+    color:black;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    color: initial;
+}
+button:focus {
+    outline: none;
+  }
+/* ========================== */
+/*
+/*         UTILITIES
+/*
+/* ========================== */
+
+.wpr{
+    height:500px;
+    overflow:hidden;
+    position:relative;
+}
+.wpr::before{
+    content: "";
+    position:absolute;
+    background-image:url('https://wallpaper-gallery.net/images/720p-wallpaper/720p-wallpaper-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition:opacity 600ms ease;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.bg-wpr{
+    opacity:1;
+    background-image:url('https://wallpaper-gallery.net/images/720p-wallpaper/720p-wallpaper-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    will-change:transform;
+    transition:transform 0ms ease,opacity 600ms ease;
+}
+.trigger{
+    width:25%;
+    opacity:1;
+    background:rgb(255, 158, 158);
+    will-change:transform;
+    transition:transform 0ms ease;
+}
+.wpr:hover::before{
+    opacity:1
+}
+.wpr:hover .trigger{
+transform: scale(4);
+transition:transform 1000ms cubic-bezier(.72,.16,.345,.875);
+}
+.wpr:hover .bg::before{
+    opacity:1;
+}
+.wpr:hover .bg-wpr{
+    opacity:0;
+    transform: scale(0.41);
+    transition:transform 600ms cubic-bezier(.72,.16,.345,.875),opacity 300ms ease;
+}
